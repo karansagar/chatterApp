@@ -24,10 +24,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         messageTableView.delegate = self
         messageTableView.dataSource = self
         
-        
-        
-        
-        
         //TODO: Set yourself as the delegate of the text field here:
 
         
@@ -37,9 +33,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
 
         //TODO: Register your MessageCell.xib file here:
-        messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell1")
+        messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
         
-        configureTableView()
+        messageTableView.rowHeight = UITableView.automaticDimension
+        messageTableView.estimatedRowHeight = 120.0
     }
     
     ///////////////////////////////////////////
@@ -49,9 +46,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //TODO: Declare cellForRowAtIndexPath here:
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell1", for: indexPath) as! CustomeMessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomeMessageCell
         
-        let messageArray = ["First Message", "Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today Second Message, hey how are you today ", "Thrid Message"]
+        let messageArray = ["First Message", "Second Message, hey how are you today Second Message and a long one.", "Thrid Message"]
         cell.bodyMessage.text = messageArray[indexPath.row]
         return cell
         
@@ -63,7 +60,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 3
     }
     
-    
     //TODO: Declare tableViewTapped here:
     
     
@@ -73,8 +69,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func configureTableView() {
         messageTableView.rowHeight = UITableView.automaticDimension
         messageTableView.estimatedRowHeight = 120.0
+
+        
     }
-    
     
     
     ///////////////////////////////////////////

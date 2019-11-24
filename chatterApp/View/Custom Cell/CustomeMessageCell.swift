@@ -9,11 +9,11 @@
 import UIKit
 
 class CustomeMessageCell: UITableViewCell {
+    
     @IBOutlet weak var messageBackgroundView: UIView!
     @IBOutlet weak var avtarImage: UIImageView!
     @IBOutlet weak var senderUserName: UILabel!
     @IBOutlet weak var bodyMessage: UILabel!
-    
     
     
     override func awakeFromNib() {
